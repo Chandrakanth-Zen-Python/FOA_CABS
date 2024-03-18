@@ -1,0 +1,1 @@
+This is a django project featuring online cab booking platform for FOA_CABS(First Of All Cabs)
