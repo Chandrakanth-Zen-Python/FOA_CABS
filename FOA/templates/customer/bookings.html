@@ -1,0 +1,36 @@
+{% extends 'customer/base.html' %}
+
+{% block body_block %}
+
+<table class="table table-light">
+
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">Date Of Journey</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Status</th>
+            <th scope="col">Amount (Applicable Once Status Is Completed)</th>
+            <th scope="col">Payment Status</th>
+            <th scope="col">Rating</th>
+        </tr>
+    </thead>
+        {% for journey in bookings %}
+         <tr>
+            <td>{{journey.journey_start_time}}</td>
+            <td>{{journey.journey_start_point}}</td>
+            <td>{{journey.journey_end_point}}</td>
+            <td>{{journey.ride_status}}</td>
+            <td>{{journey.payment_amount}}</td>
+            <td>{{journey.payment_status}}</td>
+            <td>{{journey.rating}}</td>
+
+
+         </tr>
+         {% endfor %}
+
+</table>
+
+
+
+{% endblock %}

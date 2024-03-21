@@ -1,0 +1,40 @@
+{% extends 'customer/base.html' %}
+
+{% block body_block %}
+
+
+<div class="row row-cols-4 row-cols-md-4 g-4">
+
+
+    {% for driver in drivers %}
+
+    <div class="col">
+
+        <div class="card" style="width: 18rem;">
+            {%if driver.vehicle_pic %}
+            <img src="{{driver.vehicle_pic.url}}" class="card-img-top" alt="No Image Found">
+            {% else %}
+            <img src="https://www.shutterstock.com/image-vector/car-logo-icon-emblem-design-260nw-473088037.jpg"
+                class="card-img-top" alt="...">
+            {% endif %}
+
+            <div class="card-body">
+                <h5 class="card-title">{{driver.vehicle_number}}</h5>
+                <p class="card-text">{{driver.driver}}</p>
+                <p class="card-text">{{driver}}</p>
+
+
+                {% with driver_name=driver %}
+                <a href="{% url 'customer:book_ride' driver=driver_name %}" class="btn btn-primary">Book Ride</a>
+                {% endwith %}
+            </div>
+        </div>
+
+    </div>
+
+
+    {% endfor %}
+
+
+</div>
+{% endblock %}

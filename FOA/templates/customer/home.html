@@ -1,0 +1,21 @@
+{% extends 'customer/base.html'%}
+
+{% block body_block %}
+
+
+
+<h2>Select Your Current City</h2>
+
+{% for location in locations%}
+
+{% with city_name=location.city %}
+
+<a href="{% url 'customer:taxi_list' city=city_name %}">
+    <button class="btn btn-primary">{{location.city}}</button>
+</a>
+{%  endwith %}
+
+{% endfor %}
+
+
+{% endblock %}
