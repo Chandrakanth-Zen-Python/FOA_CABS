@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <title>FOA CABS</title>
 
@@ -11,25 +12,49 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{% static 'stylesheet/style.css' %}">
-      
+
 
 </head>
+
 <body>
 
-    <h1 class="headers">Welcome To FOA Cabs</h1>
+    <div class="container">
 
-    <a href="{% url 'customer:home' %}">
+        <h1 class="headers">Welcome To FOA Cabs</h1>
 
-        <button class="btn btn-primary">Click To Book A Taxi</button>
-        
-    </a>
+        <p></p>
 
-    <a href="{% url 'driver:dashboard' %}">
-        
-        <button class="btn btn-primary " >Click To Enroll As A Driver</button>
-        
-    </a>
+        <p></p>
 
-    
+        <div id="portal_select" class="row row-cols-1 row-cols-md-2 g-4">
+
+            <div class="col">
+                <div id='portal_option_card_1' class="card text-center">
+                  <img id="user_portal_img" src="https://cdn2.iconfinder.com/data/icons/transportation-by-road-1/100/taxi-matching-3-transportation-road-taxi-cab-ride-license-plate-verification-phone-app-user-hand-512.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Book Taxi</h5>
+                    <p class="card-text">Welcome to our online cab booking platform! To access our seamless booking services and unlock a world of convenient transportation, simply log in using your registered credentials.</p>
+                    <a class='btn btn-dark btn-lg' href="{% url 'customer:home' %}">Click Here To Access User Portal</a>
+                </div>
+                </div>
+              </div>
+              <div class="col">
+                <div id='portal_option_card_2' class="card text-center">
+                  <img id="driver_portal_img" src="https://cdn3.iconfinder.com/data/icons/professions-ultra/60/Professions_Ultra_090_-_Taxi_Driver-512.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Driver Portal</h5>
+                    <p class="card-text">Driver portal offers opportunities to enhance driving, maximize earnings. Log in with registered credentials to access comprehensive platform, streamlining operations for drivers.</p>
+                    <a class='btn btn-dark btn-lg' href="{% url 'driver:dashboard' %}">Click Here To Access Driver Portal</a>
+                </div>
+                </div>
+              </div>    
+
+        </div>
+
+    </div>
+
+
+
 </body>
+
 </html>

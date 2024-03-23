@@ -2,6 +2,34 @@
 
 {% block body_block %}
 
-<h1>The Requested Page Is Coming Soon!</h1>
+<div class="row row-cols-3 row-cols-md-2 g-3">
+<div class="card" style="width: 25rem;">
+    <div class="card-body">
+      <img class="driver_dashboard_icon" src="https://t3.ftcdn.net/jpg/04/37/33/62/240_F_437336235_GQgGcRGWJkzl4edOLW3vUnVlbpvSIdsP.jpg" class="card-img-top" alt="...">
+      <h5 class="card-title">Number Of Rides Received</h5>
+      <h1 class="card-title">{{driver_stats.num_rides_received}}</h6>
+      <p class="card-text"></p>
+    </div>
+</div>
+
+<div class="card" style="width: 25rem;">
+    <div class="card-body">
+      <img class="driver_dashboard_icon" src="https://cdn-icons-png.flaticon.com/512/4676/4676266.png" alt="...">
+      <h5 class="card-title">Number Of Rides Completed</h5>
+      <h1 class="card-title">{{driver_stats.num_rides_completed}}</h6>
+      <p class="card-text"></p>
+    </div>
+</div>
+
+<div class="card" style="width: 25rem;">
+    <div class="card-body">
+      <img class="driver_dashboard_icon" src="https://cdn-icons-png.flaticon.com/512/66/66490.png" class="card-img-top" alt="...">
+      <h5 class="card-title">Revenue Generated Till Now</h5>
+      <h1 class="card-title">{{driver_stats.amount_collected}}</h6>
+      <p class="card-text"></p>
+    </div>
+</div>
+
+</div>
 
 {% endblock %}

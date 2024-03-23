@@ -19,25 +19,33 @@
             
     </head>
     <body>
-        <form class="login_form" method="post">
 
-            {% csrf_token %}
+        <div id="login_container" class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
 
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" value="">
+            <h2 class="mb-4">Welcome to FOA CABS-Login Page</h2>
+
+            <form class="login_form" method="post">
+
+                {% csrf_token %}
+    
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" class="form-control" name="username" id="username" value="">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" class="form-control" name="password" id="password">
+                </div>
+                
+                <button type="submit" class="btn btn-dark btn-lg">Click To Login</button>
             
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
-           
-        
-            <input type="submit" class="btn btn-primary" value="Click To Login">
-        
-            <p>{{message}}</p>
-        
-        </form>
+                <p>{{message}}</p>
+            
+            </form>
+
+        </div>
+      
         
     </body>
 </html>
-
-
-

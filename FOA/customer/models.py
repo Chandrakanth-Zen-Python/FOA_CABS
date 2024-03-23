@@ -4,6 +4,17 @@ from driver.models import Drivers
 from django.utils import timezone
 import uuid
 from datetime import datetime
+import random
+
+
+def generate_payment_amount():
+
+    return random.uniform(100,500)
+
+
+def generate_travel_hours():
+
+    return random.uniform(0,20)
 
 # Create your models here.
 
@@ -46,7 +57,7 @@ class Rides(models.Model):
 
     driver_name=models.ForeignKey(Drivers,on_delete=models.DO_NOTHING)
 
-    hours_travelled=models.FloatField(verbose_name='Hours Travelled',default=0)
+    hours_travelled=models.FloatField(verbose_name='Hours Travelled',default=generate_travel_hours)
 
     journey_start_point=models.ForeignKey(Locations,models.DO_NOTHING,
                                           verbose_name='Journey Start Point',
@@ -62,7 +73,7 @@ class Rides(models.Model):
 
     journey_end_time=models.DateTimeField(verbose_name='Journey End Time',default=timezone.now)
 
-    payment_amount=models.FloatField(default=0)
+    payment_amount=models.FloatField(default=generate_payment_amount)
 
     payment_status_choices=(
         ('paid',"Paid"),

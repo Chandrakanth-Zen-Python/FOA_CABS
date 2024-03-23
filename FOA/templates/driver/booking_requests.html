@@ -1,0 +1,85 @@
+{% extends 'driver/base.html' %}
+
+{% block body_block %}
+
+<table class="table table-light">
+
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">Date Of Journey</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Status</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Payment Status</th>
+            <th scope="col">Rating</th>
+        </tr>
+    </thead>
+        {% for journey in bookings %}
+         <tr>
+            <td>{{journey.journey_start_time}}</td>
+            <td>{{journey.journey_start_point}}</td>
+            <td>{{journey.journey_end_point}}</td>
+            <td>{{journey.customer_name}}</td>
+
+            
+
+            {% if journey.ride_status == 'booked' %}
+
+          
+                <td>
+
+                    <form action="{% url 'driver:ride_status' journey.book_id 'started' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-success btn-lg">Accept Ride</button>
+                    </form>
+                    <p></p>
+                    <form action="{% url 'driver:ride_status' journey.book_id 'cancelled' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-danger btn-lg">Reject Ride</button>
+                    </form>
+                </td>
+            
+            {% elif journey.ride_status == 'started'  %}
+            <td>
+                <form action="{% url 'driver:ride_status' journey.book_id 'completed' %}">
+                    {% csrf_token %}
+                    <button  class="btn btn-success btn-lg">Ride Complete</button> 
+                </form>
+                               
+            </td>               
+            
+            {% else %}
+                <td><button  class="btn btn-success btn-lg" disabled> {{journey.ride_status}}</button>     </td>
+            {% endif %}
+
+            <td>{{journey.payment_amount}}</td>
+
+            {% if journey.ride_status == 'completed' and journey.payment_status == 'not_paid' %}
+
+            <td><form action="{% url 'driver:payment_status' journey.book_id 'paid' %}">
+                {% csrf_token %}
+                <button  class="btn btn-success btn-lg">Paid</button> 
+            </form> 
+        </td>
+
+                         
+
+            {% else %}
+
+            <td><button  class="btn btn-success btn-lg" disabled>{{journey.payment_status}}</button></td>
+
+            {% endif %}
+            
+            <td>{{journey.rating}}</td>
+
+
+         </tr>
+         {% endfor %}
+
+</table>
+
+
+
+{% endblock %}

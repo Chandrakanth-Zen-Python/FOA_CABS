@@ -10,22 +10,22 @@
 
     <div class="col">
 
-        <div class="card" style="width: 18rem;">
+        <div class="card" >
             {%if driver.vehicle_pic %}
-            <img src="{{driver.vehicle_pic.url}}" class="card-img-top" alt="No Image Found">
+            <img id='vehicles_image' src="{{driver.vehicle_pic.url}}" class="card-img-top" alt="No Image Found">
             {% else %}
-            <img src="https://www.shutterstock.com/image-vector/car-logo-icon-emblem-design-260nw-473088037.jpg"
+            <img id='vehicles_image' src="https://www.shutterstock.com/image-vector/car-logo-icon-emblem-design-260nw-473088037.jpg"
                 class="card-img-top" alt="...">
             {% endif %}
 
             <div class="card-body">
-                <h5 class="card-title">{{driver.vehicle_number}}</h5>
-                <p class="card-text">{{driver.driver}}</p>
-                <p class="card-text">{{driver}}</p>
+                <h5 class="card-title">VEHICLE NUMBER: {{driver.vehicle_number}}</h5>
+                <p class="card-text">DRIVER NAME: {{driver.driver}}</p>
+                <p class="card-text">MOBILE NUMBER: {{driver.mobile_number}}</p>
 
 
                 {% with driver_name=driver %}
-                <a href="{% url 'customer:book_ride' driver=driver_name %}" class="btn btn-primary">Book Ride</a>
+                <a href="{% url 'customer:book_ride' driver=driver_name %}" class="btn btn-dark btn-lg">Book Ride</a>
                 {% endwith %}
             </div>
         </div>

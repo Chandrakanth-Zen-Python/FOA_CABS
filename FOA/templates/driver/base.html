@@ -22,53 +22,45 @@
 
         {% if user.is_authenticated %}
 
-            <nav class="navbar navbar-expand-lg bg-body-dark border-bottom sticky-top">
+       
 
-                <div id='navbarcontainer' class="container-fluid">
+        <nav id="navbar" class="navbar navbar-expand-lg bg-body-dark border-bottom sticky-top">
+            <div id='navbarcontainer' class="container-fluid">
+                <!-- Brand Icon -->
+                <a class="navbar-brand" href="{% url 'driver:dashboard' %}">
+                    <img id="brang_logo" src="{% static 'images/foa_cabs.png' %}" alt="...">
+                </a>
         
-                    <!-- Brand Icon -->
+                <!-- Menu Items -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
         
-                    <a class="navbar-brand" href="{% url 'driver:dashboard' %}">
-                        FOA CABS ( Drivers )
-                    </a>
-        
-                    <!-- Menu Items -->
-        
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-        
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto my-2 my-lg-0 fs-4" style="--bs-scroll-height: 100px;">
-                            
-        
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'driver:requests'%}">Requests</a>
-                            </li>
-        
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'driver:rewards' %}">Rewards</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'driver:support' %}">Support</a>
-                            </li>       
-                           
-        
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'driver:logout' %}">Logout</a>
-                            </li>        
-        
-        
-                        </ul>
-                    </div>
-        
-        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 fs-4" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item flex-grow-1">
+                            <a class="nav-link" href="{% url 'driver:requests'%}">Requests</a>
+                        </li>
+                        <li class="nav-item flex-grow-1">
+                            <a class="nav-link" href="{% url 'driver:rewards' %}">Rewards</a>
+                        </li>
+                        <li class="nav-item flex-grow-1">
+                            <a class="nav-link" href="{% url 'driver:support' %}">Support</a>
+                        </li>
+                        <li class="nav-item flex-grow-1">
+                            <a class="nav-link" href="{% url 'driver:logout'%}">Logout</a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+        </nav>
         
-            </nav>
+
+          
+
+            
 
             <div class='container'>
 
@@ -79,17 +71,57 @@
         
         {% else %}
 
-            <h1>Kindly login or signup before using FOA CABS!</h1>
+           
 
-            <a href="{% url 'driver:login' %}">
 
-                <input type="button" class="btn btn-primary" width="200px" value="Existing User">    
-            </a>
+            <div class="container d-flex flex-column justify-content-center align-items-center">
 
-            <a href="{% url 'driver:signup' %}">
+                <h1>Kindly login or signup before using FOA CABS!</h1>
 
-                <input type="button" class="btn btn-primary" width="200px" value="New User">    
-            </a>
+                <div class="card mb-3" style="max-width: 1200px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/295/295128.png" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body text-center">
+                          <h5 class="card-title">Existing User</h5>
+                          <p class="card-text">Welcome back! Please log in to your account to access our platform's features. Enter your username or email address and your password below. If you don't have an account yet, you can sign up for free. Remember to keep your login credentials secure and not to share them with anyone. If you encounter any issues logging in, you can reset your password or contact our support team for assistance. Thank you for choosing our platform!</p>
+                          <a class="btn btn-dark btn-lg" href="{% url 'driver:login' %}">Click To Login</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3" style="max-width: 1200px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6159/6159448.png" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body text-center">
+                          <h5 class="card-title">New User</h5>
+                          <p class="card-text">Join our community today! Create your account to unlock all the benefits of our platform. Simply fill out the registration form with your details, including your name, email address, and desired password. Once you've signed up, you'll gain access to exclusive features and content. Your privacy and security are important to us, so rest assured that your information is safe with us. If you have any questions or need assistance during the signup process, our support team is here to help. Let's get started on your journey with us!</p>
+                          <a class="btn btn-dark btn-lg" href="{% url 'driver:signup'%}">Click To Signup</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <!-- <a href="{% url 'customer:customer_login'%}">
+
+                    <input type="button" class="btn btn-primary" width="200px" value="Existing User">    
+                </a>
+    
+                <a href="{% url 'customer:customer_signup'%}">
+    
+                    <input type="button" class="btn btn-primary" width="200px" value="New User">    
+                </a> -->
+
+
+            </div>
+
+            
         
         {% endif %}
             

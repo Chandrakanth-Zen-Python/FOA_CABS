@@ -2,28 +2,45 @@
 
 {% block body_block %}
 
+<div class="row">
 
-{% if driver_obj.vehicle_pic.url %}
-    <img src="{{driver_obj.vehicle_pic.url}}" alt="">
+    <div class="col">
 
-{% else %}
-    <img src="https://www.shutterstock.com/image-vector/car-logo-icon-emblem-design-260nw-473088037.jpg"
-        class="card-img-top" alt="...">
-{% endif %}
+        {% if driver_obj.vehicle_pic.url %}
+        <img class='book_cab_img' src="{{driver_obj.vehicle_pic.url}}" alt="">
 
-<h5>VEHICLE NUMBER: {{driver_obj.vehicle_number}}</h5>
-<h5>DRIVER NAME: {{driver_user.first_name}}  {{driver_user.last_name}}</h5>
-<h5>DRIVER ACCOUNT NAME: {{ driver_user.username }} </h5>
-<h5>CONTACT INFORMATION: {{driver_obj.mobile_number}}</h5>
+        {% else %}
+        <img class='book_cab_img'  src="https://www.shutterstock.com/image-vector/car-logo-icon-emblem-design-260nw-473088037.jpg"
+            class="card-img-top" alt="...">
+        {% endif %}
 
-<form method="post">
+    </div>
 
-    {% csrf_token %}
 
-    {{ride_form.as_p}}
+    <div id='ride_details' class="col">
 
-    <input type="submit" class="btn btn-primary" value="Book Ride">
+        <h2>RIDE DETAILS</h2>
 
-</form>
+        <h5>VEHICLE NUMBER: {{driver_obj.vehicle_number}}</h5>
+        <h5>DRIVER NAME: {{driver_user.first_name}} {{driver_user.last_name}}</h5>
+        <h5>DRIVER ACCOUNT NAME: {{ driver_user.username }} </h5>
+        <h5>CONTACT INFORMATION: {{driver_obj.mobile_number}}</h5>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ride_form.as_p}}
+
+            <input type="submit" class="btn btn-dark btn-lg" value="Book Ride">
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
 
 {% endblock %}

@@ -1,4 +1,130 @@
-img{
-    width: 200px;
+/* body{
+    background-color: #F1EF99;
+} */
+
+/* img{
+    width: 600px;
+    height: 600px;
+
+} */
+
+.card{
+    background-color: #818FB4;
+    border: 1px solid black;
+}
+
+#vehicles_image{
+    width: 300px;
+    height: 400px;
+}
+
+#cities{
+    font-size: xx-large;
+    text-justify: 200px;
+}
+
+
+
+.login_form {
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 100px;
+    background-color: #B0C5A4;
+    text-align: center;
+}
+
+.nav-item {
+    padding-left: 50px;
+    padding-right:50px;
+    padding-top:20px;
+    padding-bottom:20px;
+    color:white;
+    font-size:xx-large;
+
+}
+
+#brang_logo{
+    width:200px;
+    height:100px;
+}
+
+.nav-link {
+    color:white;
+}
+
+#navbar {
+    background-color: #363062;
+    color: aliceblue;
+}
+
+
+
+#user_portal_img{
+    align-content: center;
+    width: 600px;
+    height: 400px;
+}
+
+
+#driver_portal_img{
+    align-content: center;
+    width: 600px;
+    height: 400px;
+}
+
+#portal_option_card_1{
+    background-color: #D37676;
+    border: 2px solid #000;
+}
+
+#portal_option_card_2{
+    background-color: #D37676;
+    border: 2px solid #000;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.col{
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+
+.btn-lg{
+    font-size: xx-large;
+}
+
+
+#ride_details{
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 100px;
+    background-color: #B0C5A4;
+}
+
+
+.book_cab_img{
+    width: 500px;
+    height: 500px;
+
+}
+
+#signup_container{
+    background-color: #818FB4;
+    border: 2px solid #000;
+    font-size: large;
+    align-self: center;
+    padding: 300px;
+}
+
+
+.driver_dashboard_icon {
+    width: 350px;
     height: 200px;
+
 }

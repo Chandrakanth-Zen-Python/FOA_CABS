@@ -4,18 +4,38 @@
 
 
 
-<h2>Select Your Current City</h2>
+<h1>Select Your Current Location</h2>
 
-{% for location in locations%}
+<div class="row row-cols-4 row-cols-md-4 g-4">
 
-{% with city_name=location.city %}
 
-<a href="{% url 'customer:taxi_list' city=city_name %}">
-    <button class="btn btn-primary">{{location.city}}</button>
-</a>
-{%  endwith %}
+    {% for location in locations%}
 
-{% endfor %}
+    {% with city_name=location.city %}
+
+    <div class="col">
+
+        <div class="card" >
+            <div class="card-body">
+                <img id="loc_placeholder" src="https://as2.ftcdn.net/v2/jpg/00/87/21/99/1000_F_87219930_8H7iSahOJIYLjaPWITcLYfimDwevn9Ml.jpg" class="card-img-top" alt="...">
+              <h5 class="card-title">CITY: {{location.city}}</h5>
+              <h6 class="card-title">STATE: {{location.state}}</h5>
+              <p class="card-text"></p>
+              <a id="cities" class="btn btn-dark btn-lg" href="{% url 'customer:taxi_list' city=city_name %}">
+                {{location.city}}
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    {% endwith %}
+
+
+    {% endfor %}
+
+
+</div>
 
 
 {% endblock %}
